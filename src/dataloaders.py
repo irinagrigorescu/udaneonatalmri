@@ -123,7 +123,7 @@ class SegmentationDataLoader(Dataset):
 
         # Canonical reorientation and resampling
         to_ras = torchio.transforms.ToCanonical()
-        # Resampling to 0.5 isotropic
+        # Resampling to 0.5 isotropic (testing for lower resolution, change to 0.5 below)
         to_iso = torchio.transforms.Resample((1.0, 1.0, 1.0))
         # Z-Normalisation
         to_znorm = torchio.transforms.ZNormalization()
@@ -197,9 +197,8 @@ class SegmentationDataLoader(Dataset):
 
 class SegmentationDataLoaderCortex(Dataset):
     """
-    T2w dataset for semantic segmentation
+    Dataset loader for cortical parcellation networks
     """
-
     def __init__(self, csv_file, root_dir, is_augment=False, shuffle=True, transform=None):
         """
         Constructor
@@ -265,10 +264,8 @@ class SegmentationDataLoaderCortex(Dataset):
 
         # Canonical reorientation and resampling
         to_ras = torchio.transforms.ToCanonical()
-        # Resampling to 0.5 isotropic
+        # Resampling to 0.5 isotropic (testing for lower resolution, change to 0.5 below)
         to_iso = torchio.transforms.Resample((1.0, 1.0, 1.0))
-        # Z-Normalisation
-        to_znorm = torchio.transforms.ZNormalization()
         # Rescaling
         self.to_rescl = torchio.transforms.RescaleIntensity(out_min_max=(0.0, 1.0))
 
@@ -329,7 +326,7 @@ class SegmentationDataLoaderCortex(Dataset):
     def shuffle_indices(self):
         """
         Shuffle indices in case self.shuffle is True
-        :return: nada de nada
+        :return:
         """
         if self.shuffle:
             np.random.shuffle(self.indices)
