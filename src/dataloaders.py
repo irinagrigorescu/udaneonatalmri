@@ -128,7 +128,7 @@ class SegmentationDataLoader(Dataset):
         # Z-Normalisation
         to_znorm = torchio.transforms.ZNormalization()
         # Rescaling
-        self.to_rescl = torchio.transforms.RescaleIntensity(out_min_max=(0.0, 1.0))
+        self.to_rescl = torchio.transforms.RescaleIntensity(out_min_max=(-1.0, 1.0))
 
         return [to_ras, to_iso, to_znorm, self.to_rescl]
 
