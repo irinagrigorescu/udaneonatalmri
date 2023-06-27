@@ -8,7 +8,7 @@ This is the companion code for the following publications:
 	- [doi.org/10.3389/fnins.2021.662005](https://doi.org/10.3389/fnins.2021.662005)
 
 
-### Example train/validation/test file (one subject / line)
+### Example train/validation/test file (one subject / line, see ```example_csv_files``` folder)
 
 ```
 t2w,lab,ga,as,gender
