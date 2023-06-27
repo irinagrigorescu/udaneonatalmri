@@ -11,7 +11,7 @@ This is the companion code for the following publications:
 ```
 t2w,lab,ga,as,gender
 subj1_T2w_brain.nii.gz,subj1_lab_tissue.nii.gz,41.0,41.14,Male
-```csv
+```
 
 Also, bare in mind that the code currently expects the suffix ```_T2w_brain.nii.gz``` for the images, and the suffix ```_lab_tissue.nii.gz``` for the segmentation maps.
 It also expects ```_lab_all.nii.gz``` for the cortical parcellation network.
